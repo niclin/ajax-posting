@@ -5,17 +5,9 @@
   <div class="panel-body">
     <%= post.content %>
     <div class="text-right">
-        <% if post.liked_users.any? %>
-          <%= post.liked_users.map{ |u| u.display_name }.join(",") %> 点了赞
-        <% end %>
-
-        <% if current_user # 有登入才可以按讚 %>
-            <% if post.find_like(current_user) %>
-              <%= link_to "-1", unlike_post_path(post), :method => :post, :class => "btn btn-primary" %>
-            <% else %>
-              <%= link_to "1", like_post_path(post), :method => :post, :class => "btn btn-primary" %>
-            <% end %>
-          <% end %>
+      <span id="post-like-<%= post.id %>">
+        <%= render :partial => "like", :locals => { :post => post } %>
+      </span>
         <%= link_to "Delete", post_path(post), :method => :delete, :class => "btn btn-danger", :remote => true %>
       </p>
     </div>
