@@ -9,28 +9,30 @@
   </head>
 
   <body>
-    <%= yield %>
+    <div class="container-fluid">
+      <%= yield %>
 
-     <% if flash[:notice] %>
-       <%= flash[:notice] %>
-     <% end %>
+       <% if flash[:notice] %>
+         <%= flash[:notice] %>
+       <% end %>
 
-     <% if flash[:alert] %>
-       <%= flash[:alert] %>
-     <% end %>
+       <% if flash[:alert] %>
+         <%= flash[:alert] %>
+       <% end %>
 
-    <% if current_user %>
-       <%= link_to('登出', destroy_user_session_path, :method => :delete) %>
-      <%= link_to('修改密码', edit_registration_path(:user)) %>
-    <% else %>
-      <%= link_to('注册', new_registration_path(:user)) %> |
-      <%= link_to('登入', new_session_path(:user)) %>
-     <% end %>
+      <% if current_user %>
+         <%= link_to('登出', destroy_user_session_path, :method => :delete) %>
+        <%= link_to('修改密码', edit_registration_path(:user)) %>
+      <% else %>
+        <%= link_to('注册', new_registration_path(:user)) %> |
+        <%= link_to('登入', new_session_path(:user)) %>
+       <% end %>
 
-    <%= link_to "jQuery練習一", jquery_1_path %> |
-    <%= link_to "jQuery 練習二", jquery_2_path %> |
-    <%= link_to "jQuery 練習三", jquery_3_path %> |
-    <%= link_to "jQuery 練習四", jquery_4_path %> |
-    <%= link_to "jQuery 練習五", jquery_5_path %>
+      <%= link_to "jQuery練習一", jquery_1_path %> |
+      <%= link_to "jQuery 練習二", jquery_2_path %> |
+      <%= link_to "jQuery 練習三", jquery_3_path %> |
+      <%= link_to "jQuery 練習四", jquery_4_path %> |
+      <%= link_to "jQuery 練習五", jquery_5_path %>
+    </div>
   </body>
 </html>
