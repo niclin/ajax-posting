@@ -9,7 +9,7 @@
       <span id="post-like-<%= post.id %>">
         <%= render :partial => "like", :locals => { :post => post } %>
       </span>
-        <%= link_to "Delete", post_path(post), :method => :delete, :class => "btn btn-danger", :remote => true %>
+        <%= link_to "Delete", post_path(post), :class => "delete-post btn btn-danger" %>
       </p>
     </div>
   </div>
